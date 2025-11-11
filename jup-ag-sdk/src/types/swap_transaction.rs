@@ -7,7 +7,7 @@ use super::QuoteResponse;
 /// user SwapRequest::new() and the fluent setters to configure parameters.
 ///
 /// [Official API docs](https://dev.jup.ag/docs/api/swap-api/swap)
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "camelCase")]
 pub struct SwapRequest {
     /// Rquired. The public key of the user initiating the swap.
@@ -83,7 +83,7 @@ pub struct SwapRequest {
 
 /// Only one of these fields should be set at a time.
 /// Use either `jito_tip_lamports` or `priority_level_with_max_lamports`, not both.
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "camelCase")]
 pub struct PrioritizationFeeLamports {
     #[serde(skip_serializing_if = "Option::is_none")]
@@ -93,14 +93,14 @@ pub struct PrioritizationFeeLamports {
     pub priority_level_with_max_lamports: Option<PriorityLevelWithMaxLamports>,
 }
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "camelCase")]
 pub struct PriorityLevelWithMaxLamports {
     pub max_lamports: u32,
     pub priority_level: PriorityLevel,
 }
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "camelCase")]
 pub enum PriorityLevel {
     Medium,
