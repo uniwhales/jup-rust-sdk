@@ -46,9 +46,14 @@ impl JupiterClient {
 
         let response = handle_response(response).await?;
 
-        match response.json::<QuoteResponse>().await {
+        let text = response.text().await?;
+
+        match serde_json::from_str::<QuoteResponse>(&text) {
             Ok(quote_response) => Ok(quote_response),
-            Err(e) => Err(JupiterClientError::DeserializationError(e.to_string())),
+            Err(e) => Err(JupiterClientError::DeserializationError(format!(
+                "Failed to deserialize QuoteResponse: {}. Response text: {}",
+                e, text
+            ))),
         }
     }
 
