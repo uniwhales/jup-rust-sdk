@@ -74,6 +74,8 @@ pub struct PlatformFee {
     pub amount: String,
     #[serde(default)]
     pub fee_bps: Option<u16>,
+    #[serde(default)]
+    pub fee_mint: Option<String>,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
