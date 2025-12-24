@@ -123,7 +123,7 @@ impl QuoteRequest {
             swap_mode: None,
             dexes: None,
             exclude_dexes: None,
-            restrict_intermediate_tokens: None,
+            restrict_intermediate_tokens: Some(false),
             only_direct_routes: None,
             as_legacy_transaction: None,
             platform_fee_bps: None,
