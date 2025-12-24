@@ -72,7 +72,8 @@ pub struct QuoteResponse {
 #[serde(rename_all = "camelCase")]
 pub struct PlatformFee {
     pub amount: String,
-    pub fee_bps: u16,
+    #[serde(default)]
+    pub fee_bps: Option<u16>,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
