@@ -91,8 +91,10 @@ pub struct SwapInfo {
     pub output_mint: String,
     pub in_amount: String,
     pub out_amount: String,
-    pub fee_amount: String,
-    pub fee_mint: String,
+    #[serde(default)]
+    pub fee_amount: Option<String>,
+    #[serde(default)]
+    pub fee_mint: Option<String>,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
