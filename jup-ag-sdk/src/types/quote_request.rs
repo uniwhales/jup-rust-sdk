@@ -55,7 +55,7 @@ pub struct QuoteRequest {
 
     /// If true, restricts intermediate tokens to a stable set.
     ///
-    /// Reduces slippage risk. Default: `true`.
+    /// Reduces slippage risk. Default: `false`.
     pub restrict_intermediate_tokens: Option<bool>,
 
     /// If true, only direct (single-hop) routes are allowed.
